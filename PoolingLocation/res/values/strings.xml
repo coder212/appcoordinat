@@ -1,0 +1,12 @@
+<resources>
+
+    <string name="app_name">PoolingLocation</string>
+    <string name= "empty_data">data Kosong.</string>
+    <string name="empty">kosong</string>
+    <string name="lati_text">Latitude  : </string>
+    <string name="alti_text">Altitude  : </string>
+    <string name="loni_text">Longitude : </string>
+    <string name="text_menu_getlocation">Get Location</string>
+    <string name="text_menu_list">List Location</string>
+
+</resources>

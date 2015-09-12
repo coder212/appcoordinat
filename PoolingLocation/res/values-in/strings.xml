@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="app_name">Ngumpulin Lokasi</string>
+    <string name= "empty_data">data Kosong.</string>
+    <string name="empty">kosong</string>
+    
+</resources>
