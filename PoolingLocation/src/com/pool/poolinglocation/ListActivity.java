@@ -51,6 +51,7 @@ public class ListActivity extends Activity {
 			public void onClick(View v) {
 				// TODOs Auto-generated method stub
 				ListActivity.this.getContentResolver().delete(Uri.parse("content://com.pool.poolinglocation.databaseprovider/ele"),null,null);
+				data.clear();
 				adapter.notifyDataSetChanged();
 			}
 		});
