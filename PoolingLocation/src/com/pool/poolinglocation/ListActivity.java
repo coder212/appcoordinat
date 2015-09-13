@@ -13,8 +13,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -22,8 +24,9 @@ public class ListActivity extends Activity {
 
 	ListView lv;
 	TextView tv;
+	Button bt;
 	LocationAdapter adapter;
-	String[] projection= {"Latitude_row","Longitude_row","Altitude_row"};
+	String[] projection= {"Latitude_row","Longitude_row","Altitude_row","State_id"};
 	private DatabaseHelper locationDb;
 	Animation a;
 	private ArrayList<LocationItem> data = new ArrayList<LocationItem>();
@@ -40,6 +43,19 @@ public class ListActivity extends Activity {
 		a = AnimationUtils.loadAnimation(this, R.anim.turba);
 		a.reset();
 		tv = (TextView)findViewById(R.id.emptydata);
+		bt = (Button)findViewById(R.id.erase_all);
+		bt.setText("Erase All Data");
+		bt.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODOs Auto-generated method stub
+				ListActivity.this.getContentResolver().delete(Uri.parse("content://com.pool.poolinglocation.databaseprovider/ele"),null,null);
+				adapter.notifyDataSetChanged();
+			}
+		});
+		bt.clearAnimation();
+		bt.setAnimation(a);
 		lv = (ListView)findViewById(R.id.live);
 		adapter = new LocationAdapter(this, R.layout.row_layout, data);
 		lv.setAdapter(adapter);
@@ -121,7 +137,7 @@ public class ListActivity extends Activity {
 			ListActivity.this.finish();
 			return true;
 		case R.id.listlocation:
-			startActivity(new Intent(ListActivity.this,LocationActivity.class));
+			startActivity(new Intent(ListActivity.this,ListActivity.class));
 			return true;
 
 		default:

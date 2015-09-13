@@ -124,7 +124,7 @@ public class LocationProvider extends ContentProvider {
 
 	private void checkColumns(String[] projection) {
 		// TODOs Auto-generated method stub
-		String[] avail = {locatedb.LATITUDE_ROW,locatedb.LONGITUDE_ROW,locatedb.ALTITUDE_ROW};
+		String[] avail = {locatedb.LATITUDE_ROW,locatedb.LONGITUDE_ROW,locatedb.ALTITUDE_ROW,locatedb.STATE_ID};
 		if (projection != null){
 			HashSet<String> requestedColumns = new HashSet<String>(Arrays.asList(projection));
 			HashSet<String> availColumns = new HashSet<String>(Arrays.asList(avail));

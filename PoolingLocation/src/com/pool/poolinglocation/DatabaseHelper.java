@@ -7,9 +7,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DatabaseHelper extends SQLiteOpenHelper {
 	
 	public static final String DATABASE_NAMA = "locate.db";
-	public static final int DATABASE_VERSION = 2;
+	public static final int DATABASE_VERSION = 3;
 	
 	public final String ID_ROW = "Id";
+	public final String STATE_ID = "State_id";
 	public final String LATITUDE_ROW = "Latitude_row";
 	public final String LONGITUDE_ROW = "Longitude_row";
 	public final String ALTITUDE_ROW = "Altitude_row";
@@ -17,7 +18,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	public final String LOCATION_TABLE_NAME = "Location";
 	
 	private final String CREATE_TABLE_LOCATION = "create table "+LOCATION_TABLE_NAME+"("
-			+ID_ROW+" integer primary key, "+LATITUDE_ROW+" real not null, "+LONGITUDE_ROW+" real not null, "+ALTITUDE_ROW+" real not null);";
+			+ID_ROW+" integer primary key, "+LATITUDE_ROW+" real not null, "+LONGITUDE_ROW+" real not null, "+ALTITUDE_ROW+" real not null,"+STATE_ID+" integer not null);";
 	
 	private final String ONUPGRADE_DB = "drop table if exists "+LOCATION_TABLE_NAME;
 
